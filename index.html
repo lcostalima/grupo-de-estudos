@@ -1,0 +1,766 @@
+﻿<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<html>
+<head>
+<meta charset="utf-8">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="description" content="Grupo de Estudos do Prof. Lucas Lima: formação contínua em História e Teoria da Arquitetura, das Cidades e das Artes. Aulas ao vivo, turma pequena, acompanhamento próximo.">
+<meta property="og:title" content="Grupo de Estudos do Prof. Lucas Lima">
+<meta property="og:description" content="Formação contínua em História e Teoria da Arquitetura, das Cidades e das Artes. Aulas ao vivo, turma pequena, acompanhamento próximo.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&amp;family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&amp;display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0d0b08;
+    --bg-raised:#171310;
+    --bg-raised-2:#201a14;
+    --line:rgba(244,232,205,.10);
+    --line-strong:rgba(244,232,205,.20);
+    --ink:#f2ead9;
+    --ink-dim:#b7ab98;
+    --ink-faint:#867a65;
+    --accent:#c9a24c;
+    --accent-hover:#e0bd6c;
+    --accent-ink:#241a08;
+    --maxw:1180px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"EB Garamond",Georgia,"Times New Roman",serif;
+    font-weight:400;
+    font-size:1.08rem;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block;}
+  a{color:var(--accent);}
+  a:hover{color:var(--accent-hover);}
+  h1,h2,h3{
+    font-family:"Cormorant Garamond",Georgia,serif;
+    font-weight:600;margin:0;text-wrap:balance;
+    line-height:1.15;
+  }
+  p{margin:0;}
+  ul{margin:0;padding:0;list-style:none;}
+  button{font-family:inherit;cursor:pointer;}
+
+  .eyebrow{
+    font-family:"Cormorant Garamond",Georgia,serif;
+    font-weight:700;
+    font-size:.86rem;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--accent);
+    display:block;
+    margin-bottom:14px;
+  }
+  .section{
+    padding:88px 24px;
+    border-top:1px solid var(--line);
+  }
+  .section.alt{background:var(--bg-raised);}
+  .wrap{max-width:var(--maxw);margin:0 auto;}
+  .section-head{max-width:640px;margin-bottom:48px;}
+  .section-head h2{font-size:clamp(1.6rem,3vw,2.25rem);letter-spacing:-.01em;}
+  .section-head p{color:var(--ink-dim);margin-top:16px;font-size:1rem;max-width:60ch;}
+  .lede{font-size:1.05rem;color:var(--ink-dim);max-width:62ch;}
+  .lede + .lede{margin-top:18px;}
+
+  .origin{display:grid;grid-template-columns:1.35fr .65fr;gap:56px;align-items:stretch;}
+  .origin-photo{position:relative;margin:0;justify-self:end;display:flex;flex-direction:column;width:100%;}
+  .origin-photo img{width:100%;flex:1;min-height:0;object-fit:cover;border-radius:2px;filter:sepia(.18) saturate(1.05);}
+  .origin-photo::after{content:"";position:absolute;right:-14px;top:14px;left:14px;bottom:-14px;border:1px solid var(--accent);border-radius:2px;z-index:-1;}
+  .origin-photo figcaption{margin-top:14px;font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;font-size:.88rem;color:var(--ink-faint);letter-spacing:.01em;}
+  .origin-photo figcaption em{font-style:italic;color:var(--ink-dim);}
+
+  /* buttons */
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    font-family:"Cormorant Garamond",Georgia,serif;
+    font-weight:600;font-size:.92rem;letter-spacing:.04em;
+    padding:14px 28px;border-radius:999px;border:1px solid transparent;
+    text-decoration:none;white-space:nowrap;
+    transition:background .15s ease,border-color .15s ease,color .15s ease;
+  }
+  .btn svg{width:12px;height:12px;flex:none;}
+  .btn-primary{background:var(--accent);color:var(--accent-ink);}
+  .btn-primary:hover{background:var(--accent-hover);color:var(--accent-ink);}
+  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--line-strong);}
+  .btn-ghost:hover{border-color:var(--ink);color:var(--ink);}
+  .btn-small{padding:10px 20px;font-size:.82rem;}
+
+  /* header */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(13,11,8,.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .headbar{
+    max-width:var(--maxw);margin:0 auto;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 24px;gap:24px;
+  }
+  .logo{display:flex;flex-direction:column;line-height:1.15;text-decoration:none;color:var(--ink);}
+  .logo strong{font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;font-size:1.15rem;letter-spacing:.03em;}
+  .logo span{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-dim);}
+  nav.mainnav{display:flex;gap:30px;}
+  nav.mainnav a{
+    font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:.92rem;
+    letter-spacing:.02em;text-decoration:none;color:var(--ink-dim);
+    padding:4px 0;border-bottom:1px solid transparent;
+    transition:color .15s ease,border-color .15s ease;
+  }
+  nav.mainnav a:hover{color:var(--ink);border-color:var(--line-strong);}
+  .head-actions{display:flex;align-items:center;gap:10px;}
+  .burger{display:none;background:none;border:0;color:var(--ink);padding:6px;}
+  .burger svg{width:22px;height:22px;}
+
+  /* hero */
+  .hero{
+    position:relative;
+    min-height:640px;
+    display:flex;align-items:flex-end;
+    padding:0 24px 64px;
+    background:#000;
+    overflow:hidden;
+  }
+  .hero-bg{position:absolute;inset:0;}
+  .hero-bg img{width:100%;height:100%;object-fit:cover;object-position:58% 25%;opacity:.92;}
+  .hero-bg::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(13,11,8,.05) 0%,rgba(13,11,8,.22) 45%,rgba(13,11,8,.85) 92%),
+               linear-gradient(90deg,rgba(13,11,8,.72) 0%,rgba(13,11,8,.22) 48%,rgba(13,11,8,.02) 100%);
+  }
+  .hero-inner{position:relative;max-width:var(--maxw);margin:0 auto;width:100%;}
+  .hero-content{max-width:640px;padding-top:120px;}
+  .hero h1{font-size:clamp(2rem,4.4vw,3.1rem);letter-spacing:-.015em;margin-top:18px;}
+  .hero .lede{color:var(--ink-dim);margin-top:22px;font-size:1.02rem;}
+  .hero-cta{margin-top:34px;display:flex;flex-direction:column;align-items:flex-start;gap:12px;}
+  .hero-cta small{font-family:"Cormorant Garamond",Georgia,serif;font-size:.85rem;font-style:italic;color:var(--ink-faint);letter-spacing:.02em;}
+  .hero-credit{
+    position:relative;max-width:var(--maxw);margin:32px auto 0;
+    font-family:"Cormorant Garamond",Georgia,serif;font-size:.85rem;font-style:italic;color:var(--ink-faint);
+    letter-spacing:.02em;
+  }
+
+  /* carousel */
+  .carousel-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:32px;}
+  .carousel-ctrls{display:flex;gap:8px;flex:none;}
+  .cbtn{
+    width:38px;height:38px;border-radius:999px;border:1px solid var(--line-strong);
+    background:transparent;color:var(--ink);display:flex;align-items:center;justify-content:center;
+    transition:border-color .15s ease,background .15s ease;
+  }
+  .cbtn:hover{border-color:var(--ink);background:var(--bg-raised-2);}
+  .cbtn svg{width:14px;height:14px;}
+  .track{
+    display:flex;gap:20px;overflow-x:auto;scroll-snap-type:x proximity;
+    padding-bottom:6px;margin:0 -24px;padding-left:24px;padding-right:24px;
+    scrollbar-width:none;
+  }
+  .track::-webkit-scrollbar{display:none;}
+
+  /* what-is cards */
+  .feat-card{
+    flex:0 0 260px;scroll-snap-align:start;
+    background:var(--bg-raised);border:1px solid var(--line);border-radius:4px;
+    padding:28px 24px;display:flex;flex-direction:column;gap:16px;
+  }
+  .section.alt .feat-card{background:var(--bg-raised-2);}
+  .feat-card .num{font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;font-size:.7rem;color:var(--accent);letter-spacing:.1em;}
+  .feat-card h3{font-size:1.02rem;}
+  .feat-card p{color:var(--ink-dim);font-size:.9rem;}
+  .feat-card.quote{background:var(--accent);color:var(--accent-ink);justify-content:center;}
+  .feat-card.quote p{color:var(--accent-ink);font-size:1.05rem;font-style:italic;}
+  .feat-card.quote span{font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink);opacity:.8;}
+
+  /* numbered study list */
+  #estudar .section-head{
+    position:relative;max-width:100%;margin-bottom:44px;
+    padding:52px 44px;border-radius:4px;overflow:hidden;
+    border:1px solid var(--line-strong);
+  }
+  #estudar .section-head::before{
+    content:"";position:absolute;inset:0;z-index:0;
+    background-image:linear-gradient(180deg,rgba(13,11,8,.58) 0%,rgba(13,11,8,.82) 100%),url(pantheon.jpg);
+    background-size:cover;background-position:center 38%;
+  }
+  #estudar .section-head > *{position:relative;z-index:1;}
+  #estudar .section-head h2{max-width:640px;}
+  #estudar .section-head p{max-width:60ch;}
+  .study-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);margin-top:44px;border:1px solid var(--line);}
+  .study-item{background:var(--bg);padding:28px 22px;}
+  .section.alt .study-item{background:var(--bg-raised);}
+  .study-item .num{font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;font-size:.85rem;color:var(--accent);display:block;margin-bottom:14px;}
+  .study-item p{font-size:.95rem;}
+
+  /* quote band */
+  .quote-band{
+    position:relative;overflow:hidden;
+    background:#000;padding:96px 24px;text-align:center;
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  }
+  .quote-band .section-bg{position:absolute;inset:0;z-index:0;}
+  .quote-band .section-bg img{width:100%;height:100%;object-fit:cover;object-position:center 32%;filter:sepia(.2) saturate(1.05);}
+  .quote-band .section-bg::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(13,11,8,.82) 0%,rgba(13,11,8,.88) 50%,rgba(13,11,8,.82) 100%);
+  }
+  .quote-band blockquote{
+    position:relative;z-index:1;
+    max-width:820px;margin:0 auto;font-size:clamp(1.7rem,3.6vw,2.6rem);
+    font-family:"Cormorant Garamond",Georgia,serif;
+    font-style:italic;font-weight:500;letter-spacing:-.01em;color:var(--ink);
+  }
+  .quote-band cite{
+    position:relative;z-index:1;
+    display:block;margin-top:26px;font-style:normal;
+    font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;font-size:.85rem;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--accent);
+  }
+
+  /* professor bio */
+  #professor{position:relative;overflow:hidden;}
+  #professor .section-bg{position:absolute;inset:0;z-index:0;}
+  #professor .section-bg img{width:100%;height:100%;object-fit:cover;object-position:center 32%;filter:grayscale(.15) sepia(.15);}
+  #professor .section-bg::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(13,11,8,.86) 0%,rgba(13,11,8,.93) 45%,rgba(13,11,8,.97) 100%);
+  }
+  #professor .wrap{position:relative;z-index:1;}
+  .bio{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:start;}
+  .bio-photo{position:relative;aspect-ratio:4/5;}
+  .bio-photo::after{content:"";position:absolute;right:-14px;bottom:-14px;left:14px;top:14px;border:1px solid var(--accent);border-radius:4px;z-index:-1;}
+  .bio-cutout{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:center;}
+  .bio-cutout img{width:100%;max-width:460px;height:auto;object-fit:contain;filter:sepia(.18) saturate(1.1) drop-shadow(0 24px 28px rgba(0,0,0,.6));}
+  .bio h3{font-size:1.7rem;margin-top:10px;}
+  .bio .lede{margin-top:18px;}
+  .cred-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);margin-top:32px;border:1px solid var(--line);}
+  .cred-cell{background:var(--bg);padding:20px;font-size:.86rem;color:var(--ink-dim);}
+  .section.alt .cred-cell{background:var(--bg-raised);}
+  .cred-cell b{color:var(--ink);font-weight:500;}
+
+  .event-ctrls{display:none;margin-top:52px;}
+  .event-row{display:flex;gap:20px;margin-top:20px;}
+  .event-fig{flex:1;margin:0;}
+  .event-fig img{border-radius:4px;aspect-ratio:16/10;object-fit:cover;width:100%;}
+  .event-fig figcaption{margin-top:10px;font-size:.9rem;color:var(--ink-faint);font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;letter-spacing:.02em;}
+
+  /* testimonial cards */
+  .t-card{
+    flex:0 0 300px;scroll-snap-align:start;
+    background:var(--bg-raised);border:1px solid var(--line);border-radius:4px;
+    padding:28px 26px;display:flex;flex-direction:column;gap:20px;justify-content:space-between;
+  }
+  .section.alt .t-card{background:var(--bg-raised-2);}
+  .t-card .mark{width:26px;height:20px;color:var(--accent);}
+  .t-card p{font-size:.95rem;color:var(--ink);}
+  .t-card footer{font-family:"Cormorant Garamond",Georgia,serif;font-size:.85rem;letter-spacing:.06em;color:var(--ink-faint);text-transform:uppercase;font-weight:600;}
+  .t-foot{margin-top:28px;font-size:.82rem;color:var(--ink-faint);}
+
+  /* for you / not for you */
+  .fit-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);}
+  .fit-col{background:var(--bg-raised);padding:36px 32px;}
+  .section.alt .fit-col{background:var(--bg-raised-2);}
+  .fit-col h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;font-size:.82rem;letter-spacing:.04em;text-transform:uppercase;margin-bottom:22px;}
+  .fit-col.yes h3{color:var(--accent);}
+  .fit-col.no h3{color:var(--ink-faint);}
+  .fit-list li{display:flex;gap:12px;padding:12px 0;border-top:1px solid var(--line);font-size:.92rem;color:var(--ink-dim);}
+  .fit-list li:first-child{border-top:0;}
+  .fit-list svg{width:16px;height:16px;flex:none;margin-top:3px;}
+  .fit-col.yes svg{color:var(--accent);}
+  .fit-col.no svg{color:var(--ink-faint);}
+
+  /* pricing */
+  #convite{position:relative;overflow:hidden;}
+  #convite .section-bg{position:absolute;inset:0;z-index:0;}
+  #convite .section-bg img{width:100%;height:100%;object-fit:cover;object-position:center 42%;filter:grayscale(.1) sepia(.12);}
+  #convite .section-bg::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(13,11,8,.9) 0%,rgba(13,11,8,.94) 45%,rgba(13,11,8,.97) 100%);
+  }
+  #convite .wrap{position:relative;z-index:1;}
+  .invite{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:start;}
+  .price-card{
+    background:var(--bg-raised);border:1px solid var(--line-strong);border-radius:4px;
+    padding:36px;position:relative;overflow:hidden;
+  }
+  .section.alt .price-card{background:var(--bg-raised-2);}
+  .price-card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--accent);}
+  .price-card .eyebrow{margin-bottom:6px;}
+  .price-value{font-size:2.1rem;font-weight:500;letter-spacing:-.01em;margin-top:6px;}
+  .price-value small{font-size:1rem;font-weight:400;color:var(--ink-dim);}
+  .price-sub{color:var(--ink-dim);font-size:.88rem;margin-top:4px;}
+  .price-list{margin-top:26px;display:flex;flex-direction:column;gap:11px;}
+  .price-list li{display:flex;gap:10px;font-size:.9rem;color:var(--ink-dim);}
+  .price-list svg{width:15px;height:15px;color:var(--accent);flex:none;margin-top:3px;}
+  .price-card .btn{margin-top:28px;width:100%;justify-content:center;}
+  .price-fine{margin-top:18px;font-size:.74rem;color:var(--ink-faint);line-height:1.6;}
+
+  /* FAQ */
+  .faq-list{border-top:1px solid var(--line);max-width:760px;}
+  details.faq{border-bottom:1px solid var(--line);padding:22px 0;}
+  details.faq summary{
+    list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:20px;
+    font-size:1rem;color:var(--ink);
+  }
+  details.faq summary::-webkit-details-marker{display:none;}
+  details.faq summary .plus{
+    width:24px;height:24px;flex:none;border-radius:999px;border:1px solid var(--line-strong);
+    display:flex;align-items:center;justify-content:center;position:relative;
+  }
+  details.faq summary .plus svg{width:11px;height:11px;transition:transform .2s ease;}
+  details.faq[open] summary .plus svg{transform:rotate(45deg);}
+  details.faq .faq-a{color:var(--ink-dim);font-size:.92rem;margin-top:16px;max-width:62ch;}
+
+  /* final cta */
+  .final-cta{
+    padding:110px 24px;text-align:center;background:#000;
+  }
+  .final-cta blockquote{
+    max-width:760px;margin:0 auto;font-size:clamp(1.7rem,3.8vw,2.6rem);
+    font-family:"Cormorant Garamond",Georgia,serif;
+    font-style:italic;font-weight:500;letter-spacing:-.01em;
+  }
+  .final-cta .btn{margin-top:36px;}
+
+  /* footer */
+  footer.site{background:var(--bg-raised);border-top:1px solid var(--line);padding:64px 24px 32px;}
+  .foot-grid{max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px;}
+  .foot-brand p{color:var(--ink-dim);font-size:.86rem;margin-top:14px;max-width:34ch;}
+  .foot-col h4{font-family:"Cormorant Garamond",Georgia,serif;font-size:.85rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:16px;}
+  .foot-col ul{display:flex;flex-direction:column;gap:10px;}
+  .foot-col a{font-size:.88rem;color:var(--ink-dim);text-decoration:none;}
+  .foot-col a:hover{color:var(--ink);}
+  .foot-bottom{
+    max-width:var(--maxw);margin:48px auto 0;padding-top:24px;border-top:1px solid var(--line);
+    display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;
+    font-size:.76rem;color:var(--ink-faint);
+  }
+  .foot-socials{display:flex;gap:14px;}
+  .foot-socials a{width:32px;height:32px;border:1px solid var(--line-strong);border-radius:999px;display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--ink-dim);}
+  .foot-socials a:hover{color:var(--ink);border-color:var(--ink);}
+  .foot-socials svg{width:15px;height:15px;}
+
+  /* mobile sticky CTA */
+  .mobile-cta-bar{
+    display:none;
+  }
+
+  @media (max-width:860px){
+    nav.mainnav{display:none;}
+    .burger{display:flex;}
+    .mobile-cta-bar{
+      display:block;position:fixed;left:0;right:0;bottom:0;z-index:70;
+      padding:14px 20px calc(14px + env(safe-area-inset-bottom));
+      background:rgba(13,11,8,.92);backdrop-filter:blur(10px);
+      border-top:1px solid var(--line);
+    }
+    .mobile-cta-bar .btn{width:100%;justify-content:center;}
+    footer.site{padding-bottom:88px;}
+    .bio,.invite,.origin{grid-template-columns:1fr;}
+    .origin-photo{max-width:220px;justify-self:start;}
+    .study-grid{grid-template-columns:1fr 1fr;}
+    .fit-grid{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+    .event-ctrls{display:flex;justify-content:flex-end;}
+    .event-row{
+      flex-wrap:nowrap;overflow-x:auto;scroll-snap-type:x proximity;
+      scrollbar-width:none;margin:8px -24px 0;padding:0 24px 6px;
+    }
+    .event-row::-webkit-scrollbar{display:none;}
+    .event-fig{flex:0 0 82%;scroll-snap-align:start;}
+    .hero{min-height:560px;}
+    .hero-content{padding-top:90px;}
+  }
+  @media (max-width:520px){
+    .study-grid{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr;}
+    .section{padding:64px 20px;}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="headbar">
+    <a class="logo" href="#top">
+      <strong>PROF. LUCAS LIMA</strong>
+      <span>Grupo de Estudos</span>
+    </a>
+    <nav class="mainnav" aria-label="Principal">
+      <a href="#grupo">O grupo</a>
+      <a href="#estudar">O que estudar</a>
+      <a href="#professor">Professor</a>
+      <a href="#depoimentos">Depoimentos</a>
+      <a href="#convite">Assinatura</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div class="head-actions">
+      <a class="btn btn-ghost btn-small" href="https://hotmart.com/PT_BR/club/prof-lucas-lima-grupo-de-estudos/community/15320780" target="_blank" rel="noopener">Entrar no grupo</a>
+      <a class="btn btn-primary btn-small" href="https://pay.hotmart.com/D107423747G" target="_blank" rel="noopener">
+        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M6 3l10 7-10 7V3z"></path></svg>
+        Quero fazer parte
+      </a>
+      <button class="burger" aria-label="Abrir menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 6h18M3 12h18M3 18h18"></path></svg></button>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <section class="hero">
+    <div class="hero-bg" style="opacity: 0.85"><img src="florence.jpg" alt="Vista da Catedral de Santa Maria del Fiore, o Duomo de Florença"></div>
+    <div class="hero-inner">
+      <div class="hero-content">
+        <span class="eyebrow" style="width: 594px; height: 46px">Formação contínua em história e teoria da arquitetura, das cidades e das artes</span>
+        <h1>Aprenda a ler em profundidade as formas e ideias que cada época e civilização deixou no mundo.</h1>
+        <p class="lede">Sua arquitetura, sua cidade e sua arte — para além da superfície. O Grupo de Estudos do Prof. Lucas Lima é uma comunidade de formação contínua dedicada à História e Teoria da Arquitetura, das Cidades e das Artes, com aulas ao vivo, espaço para perguntas, gravações, análises aprofundadas de obras e uma biblioteca digital de materiais selecionados.</p>
+        <div class="hero-cta">
+          <a class="btn btn-primary" href="https://pay.hotmart.com/D107423747G" target="_blank" rel="noopener">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M6 3l10 7-10 7V3z"></path></svg>
+            Quero fazer parte do grupo
+          </a>
+          <small>Turma pequena e próxima · assinatura anual</small>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="grupo">
+    <div class="wrap">
+      <div class="origin">
+        <div>
+          <span class="eyebrow">O ponto de partida</span>
+          <h2 style="font-size:clamp(1.7rem,3.4vw,2.4rem);">A informação está em toda parte. A profundidade precisa ser aprendida.</h2>
+          <div style="margin-top:28px;display:flex;flex-direction:column;gap:18px;">
+            <p class="lede">Vivemos cercados por imagens, obras, edifícios, cidades, museus e paisagens, mas raramente aprendemos a lê-los em profundidade. Este grupo nasce para desenvolver esse olhar: perceber as ideias, os valores, a história e a visão de mundo materializados na arquitetura, na arte e nas cidades — seja diante de uma obra, em um projeto ou durante uma viagem.</p>
+            <p class="lede">É para arquitetos, designers, artistas, jornalistas, estudantes, profissionais criativos, viajantes e todos que desejam enriquecer sua formação cultural — porque conhecer uma obra é diferente de saber lê-la, assim como conhecer uma cidade é diferente de compreender como e por que ela se tornou aquilo que é.</p>
+            <p class="lede">É esse solo que o Grupo de Estudos existe para construir: aula após aula, obra após obra, ideia após ideia, com tempo para ler, discutir, pensar e aprofundar.</p>
+          </div>
+        </div>
+        <figure class="origin-photo">
+          <img src="bernini.jpg" alt="Detalhe de O Rapto de Proserpina, de Gian Lorenzo Bernini">
+          <figcaption>Gian Lorenzo Bernini, <em>O Rapto de Proserpina</em> (detalhe), 1621–22</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="wrap">
+      <div class="carousel-head">
+        <div class="section-head" style="margin-bottom:0;">
+          <span class="eyebrow">O que é o grupo</span>
+          <h2>Uma estrutura pensada para formação real, não para consumo de conteúdo.</h2>
+        </div>
+        <div class="carousel-ctrls">
+          <button class="cbtn" data-scroll="feat" data-dir="-1" aria-label="Anterior"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 3L5 8l5 5"></path></svg></button>
+          <button class="cbtn" data-scroll="feat" data-dir="1" aria-label="Próximo"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3l5 5-5 5"></path></svg></button>
+        </div>
+      </div>
+      <div class="track" data-track="feat">
+        <div class="feat-card"><span class="num">01</span><h3>Aulas ao vivo</h3><p>Encontros semanais para estudar autores, obras e períodos com tempo para aprofundar — não para correr.</p></div>
+        <div class="feat-card"><span class="num">02</span><h3>Perguntas e discussão</h3><p>Cada aula é também uma conversa: suas dúvidas, leituras e ideias entram no debate.</p></div>
+        <div class="feat-card"><span class="num">03</span><h3>Gravações completas</h3><p>Tudo fica disponível para rever, revisitar e estudar no seu próprio tempo.</p></div>
+        <div class="feat-card"><span class="num">04</span><h3>Análise de obras</h3><p>Edifícios, cidades, pinturas e textos lidos com rigor crítico — não apenas descritos.</p></div>
+        <div class="feat-card"><span class="num">05</span><h3>Biblioteca digital</h3><p>Uma seleção curada de textos, imagens e materiais de apoio, organizada e em crescimento contínuo.</p></div>
+        <div class="feat-card quote"><p>"Um grupo pequeno, próximo e acompanhado de perto."</p><span>Prof. Lucas Lima</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="estudar">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">O que você vai estudar</span>
+        <h2>Arquitetura, cidade e arte não se entendem isoladamente, nem separadas das ideias que as produziram.</h2>
+        <p>São expressões de uma mesma realidade histórica, em suas dimensões estéticas, culturais e filosóficas. O grupo estuda a interseção entre ideias, acontecimentos e formas, compreendendo como pensamento, religião, arte, arquitetura e cidade se relacionam e se materializam ao longo da história.</p>
+      </div>
+      <div class="study-grid">
+        <div class="study-item"><span class="num">01</span><p>História e Teoria da Arquitetura e das Cidades</p></div>
+        <div class="study-item"><span class="num">02</span><p>História da Arte</p></div>
+        <div class="study-item"><span class="num">03</span><p>Acontecimentos e transformações do poder</p></div>
+        <div class="study-item"><span class="num">04</span><p>Ideias e suas materializações no espaço e na arte</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="quote-band">
+    <div class="section-bg"><img src="athens.jpg" alt="A Escola de Atenas, afresco de Rafael, Museus do Vaticano"></div>
+    <blockquote>“Conhecer uma obra é diferente de saber lê-la.”</blockquote>
+    <cite>Prof. Lucas Lima</cite>
+  </section>
+
+  <section class="section alt" id="professor">
+    <div class="section-bg"><img src="parthenon.jpg" alt="O Partenon, na Acrópole de Atenas"></div>
+    <div class="wrap">
+      <div class="bio">
+        <div>
+          <span class="eyebrow">Quem conduz o grupo</span>
+          <h3>Prof. Lucas Lima (M.Sc., MBA)</h3>
+          <p class="lede">Arquiteto e urbanista, professor e pesquisador nas áreas de História da Arte, Arquitetura e Urbanismo. Sua trajetória reúne três dimensões que estão no centro deste grupo — pesquisa acadêmica, prática profissional e ensino — e é a partir dessa experiência, entre a sala de aula, o canteiro de obras e a pesquisa internacional, que ele propõe este espaço de estudo.</p>
+          <div class="cred-grid">
+            <div class="cred-cell">Doutorando em <b>História, História da Arte e Geografia</b> pela Universidade das Ilhas Baleares (<b>UIB</b>, Espanha), e em Arquitetura e Urbanismo do NPGAU — <b>UFMG</b>.</div>
+            <div class="cred-cell" style="text-decoration-line: none">Diretor de Urbanismo do <span style="color: rgb(242, 234, 217)">Instituto Brasileiro de Arquitetura Tradicional (IBAT)</span> e por dois turnos atuou como membro do Conselho da&nbsp;International Network for Traditional Building, Architecture and Urbanism (<font color="#f2ead9">INTBAU</font>).</div>
+            <div class="cred-cell"><span style="color: rgb(242, 234, 217)">Mestre em Arquitetura e Urbanismo</span> pela <span style="color: rgb(242, 234, 217)">UFMG</span>. <span style="color: rgb(242, 234, 217)">MBA </span>Executivo em Gestão de Negócios de Incorporação Imobiliária e Construção Civil pela <span style="color: rgb(242, 234, 217)">FGV</span>.</div>
+            <div class="cred-cell">Professor de Arquitetura e Urbanismo, Design e Engenharia Civil no <b>Centro Universitário UNA</b> (desde 2018) e no <b>Uni-BH</b> (desde 2022) e de junções nacionais do <font color="#f2ead9">Grupo Ânima</font>.</div>
+            <div class="cred-cell">Certificação profissional <span style="color: rgb(242, 234, 217)">CPD em Projetos Sustentáveis</span> pela University College of Estate Management (<font color="#f2ead9">UCEM</font>), em parceria com a <span style="color: rgb(242, 234, 217)">King's Foundation</span>, Reino Unido.</div>
+            <div class="cred-cell"><b>Tenente Arquiteto do Exército Brasileiro</b>, com atuação em projetos estratégicos e avaliação econômica de bens imóveis.</div>
+          </div>
+        </div>
+        <div class="bio-photo">
+          <div class="bio-cutout"><img src="prof-cutout.png" alt="Retrato do Prof. Lucas Lima"></div>
+        </div>
+      </div>
+      <div class="event-ctrls">
+        <button class="cbtn" data-scroll="events" data-dir="-1" aria-label="Foto anterior"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 3L5 8l5 5"></path></svg></button>
+        <button class="cbtn" data-scroll="events" data-dir="1" aria-label="Próxima foto"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3l5 5-5 5"></path></svg></button>
+      </div>
+      <div class="event-row" data-track="events">
+        <figure class="event-fig">
+          <img src="event1.jpg" alt="Prof. Lucas Lima ministrando palestra na Universidade Mackenzie" style="object-position:center 8%">
+          <figcaption>Palestra na Universidade Presbiteriana Mackenzie</figcaption>
+        </figure>
+        <figure class="event-fig">
+          <img src="event2.jpg" alt="Prof. Lucas Lima apresentando estudo sobre a formação histórica das cidades">
+          <figcaption>Aula sobre a formação histórica das cidades brasileiras.</figcaption>
+        </figure>
+        <figure class="event-fig">
+          <img src="event3.jpg" alt="Prof. Lucas Lima em mesa de debate acadêmico do IBAT/INTBAU Brasil">
+          <figcaption>Participação em debates internacionais sobre arquitetura e urbanismo. IBAT / INTBAU.</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="depoimentos">
+    <div class="wrap">
+      <div class="carousel-head">
+        <div class="section-head" style="margin-bottom:0;">
+          <span class="eyebrow">Quem já estudou com ele</span>
+          <h2>O impacto costuma durar bem além da aula.</h2>
+        </div>
+        <div class="carousel-ctrls">
+          <button class="cbtn" data-scroll="test" data-dir="-1" aria-label="Anterior"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M10 3L5 8l5 5"></path></svg></button>
+          <button class="cbtn" data-scroll="test" data-dir="1" aria-label="Próximo"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M6 3l5 5-5 5"></path></svg></button>
+        </div>
+      </div>
+      <div class="track" data-track="test">
+        <div class="t-card">
+          <svg class="mark" viewBox="0 0 32 24" fill="currentColor"><path d="M0 24V13.6C0 5.5 5.4 0 13 0v6.4c-3.8 0-6 2.3-6 6.2h6V24H0zm18 0V13.6c0-8.1 5.4-13.6 13-13.6v6.4c-3.8 0-6 2.3-6 6.2h6V24H18z"></path></svg>
+          <p>Aprendi que o design não se trata só de desenho — a palavra carrega o sentido de projeto, de desígnio: intenção, investigação, metodologia, uma visão de mundo.</p>
+          <footer>FÁBIO M. · ALUNO</footer>
+        </div>
+        <div class="t-card">
+          <svg class="mark" viewBox="0 0 32 24" fill="currentColor"><path d="M0 24V13.6C0 5.5 5.4 0 13 0v6.4c-3.8 0-6 2.3-6 6.2h6V24H0zm18 0V13.6c0-8.1 5.4-13.6 13-13.6v6.4c-3.8 0-6 2.3-6 6.2h6V24H18z"></path></svg>
+          <p>Foi o único professor que tratou a teoria de forma verdadeiramente intensa, ampliando nossa base intelectual. Desde então, não vejo mais um projeto com um olhar automático.</p>
+          <footer>NATALIA S. · ALUNA</footer>
+        </div>
+        <div class="t-card">
+          <svg class="mark" viewBox="0 0 32 24" fill="currentColor"><path d="M0 24V13.6C0 5.5 5.4 0 13 0v6.4c-3.8 0-6 2.3-6 6.2h6V24H0zm18 0V13.6c0-8.1 5.4-13.6 13-13.6v6.4c-3.8 0-6 2.3-6 6.2h6V24H18z"></path></svg>
+          <p>Suas aulas me proporcionaram uma nova visão sobre o papel do arquiteto e a responsabilidade social de cada projeto. Sempre que penso em arquitetura, penso nele.</p>
+          <footer>JUNIA K. · ALUNA</footer>
+        </div>
+        <div class="t-card">
+          <svg class="mark" viewBox="0 0 32 24" fill="currentColor"><path d="M0 24V13.6C0 5.5 5.4 0 13 0v6.4c-3.8 0-6 2.3-6 6.2h6V24H0zm18 0V13.6c0-8.1 5.4-13.6 13-13.6v6.4c-3.8 0-6 2.3-6 6.2h6V24H18z"></path></svg>
+          <p>O que mais me inspirou foi ir além da superfície. Entendi que a vida intelectual é essencial à formação de um bom arquiteto — algo que sinto negligenciado no meio.</p>
+          <footer>KEZIA · ALUNA</footer>
+        </div>
+        <div class="t-card">
+          <svg class="mark" viewBox="0 0 32 24" fill="currentColor"><path d="M0 24V13.6C0 5.5 5.4 0 13 0v6.4c-3.8 0-6 2.3-6 6.2h6V24H0zm18 0V13.6c0-8.1 5.4-13.6 13-13.6v6.4c-3.8 0-6 2.3-6 6.2h6V24H18z"></path></svg>
+          <p>A metodologia aberta, com espaço para as opiniões dos alunos, tornava as aulas mais dinâmicas e o aprendizado mais original e único.</p>
+          <footer>Klysman · Ex-aluno</footer>
+        </div>
+      </div>
+      <p class="t-foot">Depoimentos selecionados de ex-alunos de disciplinas ministradas pelo Prof. Lucas Lima.</p>
+    </div>
+  </section>
+
+  <section class="section alt">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Para quem é este grupo</span>
+      </div>
+      <div class="fit-grid">
+        <div class="fit-col yes">
+          <h3>É para você se</h3>
+          <ul class="fit-list">
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10l4 4 8-8"></path></svg>é arquiteto, urbanista, designer ou estudante e quer aprofundar sua compreensão sobre as ideias, a história e a cultura por trás do projeto</li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10l4 4 8-8"></path></svg>é professor, pesquisador, jornalista ou profissional criativo e busca ampliar seu repertório cultural</li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10l4 4 8-8"></path></svg>tem interesse genuíno por arte, arquitetura, cidades e cultura, mesmo sem formação formal nessas áreas</li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10l4 4 8-8"></path></svg>viaja e quer enxergar além do que os olhos encontram, compreendendo melhor as obras, cidades e paisagens que visita</li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10l4 4 8-8"></path></svg>valoriza uma formação cultural ampla e quer desenvolver, com tempo e profundidade, uma nova maneira de olhar o mundo</li>
+          </ul>
+        </div>
+        <div class="fit-col no">
+          <h3>Não é para você se</h3>
+          <ul class="fit-list">
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5l10 10M15 5L5 15"></path></svg>quer respostas rápidas e conteúdo superficial, sem tempo para leitura, reflexão e discussão</li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5l10 10M15 5L5 15"></path></svg>busca apenas acumular informações, sem interesse em compreender as relações entre arte, arquitetura, cidade, história e cultura</li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 5l10 10M15 5L5 15"></path></svg>prefere uma experiência massificada e impessoal, sem espaço para perguntas, diálogo e aprofundamento</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="convite">
+    <div class="section-bg"><img src="colosseo.jpg" alt="O Coliseu, em Roma"></div>
+    <div class="wrap">
+      <div class="invite">
+        <div>
+          <span class="eyebrow">O convite</span>
+          <h2 style="font-size:clamp(1.7rem,3.4vw,2.3rem);">Um ano de formação contínua, dentro de um grupo pequeno e próximo.</h2>
+          <p class="lede" style="margin-top:22px;">A intenção é manter uma turma pequena, para que o Prof. Lucas Lima possa responder perguntas individualmente, conversar, conhecer e acompanhar cada participante ao longo da formação.</p>
+        </div>
+        <div class="price-card">
+          <span class="eyebrow">Assinatura anual</span>
+          <div class="price-value">12x R$ 366,12</div>
+          <p class="price-sub">ou R$ 3.540 / ano à vista</p>
+          <ul class="price-list">
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10l4 4 8-8"></path></svg>Aulas ao vivo semanais</li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10l4 4 8-8"></path></svg>Gravações completas de todas as aulas</li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10l4 4 8-8"></path></svg>Espaço aberto para perguntas e discussão</li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10l4 4 8-8"></path></svg>Análises aprofundadas de obras, autores e períodos</li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10l4 4 8-8"></path></svg>Biblioteca digital de materiais selecionados</li>
+            <li><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 10l4 4 8-8"></path></svg>Grupo pequeno, com acompanhamento próximo do professor</li>
+          </ul>
+          <a class="btn btn-primary" href="https://pay.hotmart.com/D107423747G" target="_blank" rel="noopener">
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M6 3l10 7-10 7V3z"></path></svg>
+            Quero fazer parte do grupo
+          </a>
+          <p class="price-fine">Pagamento processado com segurança pela Hotmart · cartão, Apple Pay, PayPal ou parcelado. Direito de arrependimento em até 7 dias após a compra, conforme o Código de Defesa do Consumidor.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section alt" id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Perguntas frequentes</span>
+        <h2>Antes de começar</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq" open="">
+          <summary>Preciso ser arquiteto para participar?<span class="plus"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 4v12M4 10h12"></path></svg></span></summary>
+          <p class="faq-a">Não. O grupo recebe arquitetos, urbanistas, estudantes, professores e qualquer pessoa com interesse genuíno em história, teoria e crítica da arquitetura, das cidades e das artes.</p>
+        </details>
+        <details class="faq">
+          <summary>Como funcionam as aulas ao vivo?<span class="plus"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 4v12M4 10h12"></path></svg></span></summary>
+          <p class="faq-a">São encontros semanais por videoconferência, com espaço aberto para perguntas e discussão ao longo da aula.</p>
+        </details>
+        <details class="faq">
+          <summary>E se eu não puder assistir ao vivo?<span class="plus"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 4v12M4 10h12"></path></svg></span></summary>
+          <p class="faq-a">Sem problema: todas as aulas são gravadas e ficam disponíveis na biblioteca do grupo para você assistir no seu tempo, quantas vezes quiser.</p>
+        </details>
+        <details class="faq">
+          <summary>O que tem na biblioteca digital?<span class="plus"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 4v12M4 10h12"></path></svg></span></summary>
+          <p class="faq-a">Uma seleção curada de textos, imagens e materiais de apoio escolhidos pelo professor, organizada por tema e em atualização contínua.</p>
+        </details>
+        <details class="faq">
+          <summary>Como funciona o pagamento?<span class="plus"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 4v12M4 10h12"></path></svg></span></summary>
+          <p class="faq-a">A assinatura é anual, processada com segurança pela Hotmart, com opção de pagamento à vista ou parcelado no cartão.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <blockquote>Aprenda a olhar para a arquitetura, a cidade e a arte para além da superfície.</blockquote>
+    <a class="btn btn-primary" href="https://pay.hotmart.com/D107423747G" target="_blank" rel="noopener">
+      <svg viewBox="0 0 20 20" fill="currentColor"><path d="M6 3l10 7-10 7V3z"></path></svg>
+      Quero fazer parte do grupo
+    </a>
+  </section>
+
+</main>
+
+<footer class="site">
+  <div class="foot-grid">
+    <div class="foot-brand">
+      <strong style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;letter-spacing:.02em;">PROF. LUCAS LIMA</strong>
+      <p>Grupo de Estudos dedicado à História e Teoria da Arquitetura, das Cidades e das Artes. Formação contínua, turma pequena, acompanhamento próximo.</p>
+    </div>
+    <div class="foot-col">
+      <h4>O grupo</h4>
+      <ul>
+        <li><a href="#grupo">O ponto de partida</a></li>
+        <li><a href="#estudar">O que estudar</a></li>
+        <li><a href="#professor">O professor</a></li>
+        <li><a href="#depoimentos">Depoimentos</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>Assinatura</h4>
+      <ul>
+        <li><a href="#convite">O convite</a></li>
+        <li><a href="#faq">Perguntas frequentes</a></li>
+        <li><a href="https://hotmart.com/PT_BR/club/prof-lucas-lima-grupo-de-estudos/community/15320780" target="_blank" rel="noopener">Entrar no grupo</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h4>Contato</h4>
+      <ul>
+        <li><a href="https://wa.me/5531999322069" target="_blank" rel="noopener">WhatsApp (31) 9 9932-2069</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 Prof. Lucas Lima · Grupo de Estudos. Todos os direitos reservados.</span>
+    <div class="foot-socials">
+      <a href="https://www.instagram.com/ldc.lima/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"></rect><circle cx="12" cy="12" r="4"></circle><circle cx="17.2" cy="6.8" r="1"></circle></svg></a>
+      <a href="https://www.linkedin.com/in/architectlucaslima/" target="_blank" rel="noopener" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 11-.02 5 2.5 2.5 0 01.02-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.6c0-1.34-.02-3.07-1.87-3.07-1.87 0-2.16 1.46-2.16 2.97V21H9z"></path></svg></a>
+      <a href="https://www.youtube.com/@prof.lucaslima.arquitetura" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12s0-3.2-.4-4.7c-.24-.9-.94-1.6-1.83-1.84C18.2 5 12 5 12 5s-6.2 0-7.77.46c-.9.24-1.6.94-1.83 1.84C2 8.8 2 12 2 12s0 3.2.4 4.7c.24.9.94 1.6 1.83 1.84C5.8 19 12 19 12 19s6.2 0 7.77-.46c.9-.24 1.6-.94 1.83-1.84.4-1.5.4-4.7.4-4.7zM10 15V9l5.2 3z"></path></svg></a>
+    </div>
+  </div>
+</footer>
+
+<div class="mobile-cta-bar">
+  <a class="btn btn-primary" href="https://pay.hotmart.com/D107423747G" target="_blank" rel="noopener">
+    <svg viewBox="0 0 20 20" fill="currentColor"><path d="M6 3l10 7-10 7V3z"></path></svg>
+    Quero fazer parte do grupo
+  </a>
+</div>
+
+<script>
+document.querySelectorAll('.cbtn').forEach(function(btn){
+  btn.addEventListener('click', function(){
+    var key = btn.getAttribute('data-scroll');
+    var dir = parseInt(btn.getAttribute('data-dir'),10);
+    var track = document.querySelector('[data-track="'+key+'"]');
+    if(!track) return;
+    var card = track.querySelector('.feat-card, .t-card, .event-fig');
+    var step = card ? card.getBoundingClientRect().width + 20 : 300;
+    var pages = key === 'events' ? 1 : 2;
+    track.scrollBy({left: dir*step*pages, behavior:'instant'});
+  });
+});
+var burger = document.querySelector('.burger');
+var nav = document.querySelector('nav.mainnav');
+if(burger){
+  burger.addEventListener('click', function(){
+    var open = nav.style.display === 'flex';
+    if(open){
+      nav.style.display = '';
+    } else {
+      nav.style.cssText = 'display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:var(--bg);padding:20px 24px;border-top:1px solid var(--line);gap:4px;';
+    }
+  });
+}
+</script>
+</body>
+</html>
