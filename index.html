@@ -147,6 +147,7 @@
   }
   .hero-inner{position:relative;max-width:var(--maxw);margin:0 auto;width:100%;}
   .hero-content{max-width:640px;padding-top:120px;}
+  .hero-eyebrow{text-shadow:0 1px 3px rgba(0,0,0,.7),0 2px 14px rgba(0,0,0,.5);}
   .hero h1{font-size:clamp(2rem,4.4vw,3.1rem);letter-spacing:-.015em;margin-top:18px;}
   .hero .lede{color:var(--ink-dim);margin-top:22px;font-size:1.02rem;}
   .hero-cta{margin-top:34px;display:flex;flex-direction:column;align-items:flex-start;gap:12px;}
@@ -184,9 +185,6 @@
   .feat-card .num{font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;font-size:.7rem;color:var(--accent);letter-spacing:.1em;}
   .feat-card h3{font-size:1.02rem;}
   .feat-card p{color:var(--ink-dim);font-size:.9rem;}
-  .feat-card.quote{background:var(--accent);color:var(--accent-ink);justify-content:center;}
-  .feat-card.quote p{color:var(--accent-ink);font-size:1.05rem;font-style:italic;}
-  .feat-card.quote span{font-family:"Cormorant Garamond",Georgia,serif;font-weight:700;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent-ink);opacity:.8;}
 
   /* numbered study list */
   #estudar .section-head{
@@ -362,6 +360,7 @@
   }
 
   @media (max-width:860px){
+    html{font-size:112.5%;}
     nav.mainnav{display:none;}
     .burger{display:flex;}
     .head-actions .btn{display:none;}
@@ -427,7 +426,7 @@
     <div class="hero-bg" style="opacity: 0.85"><img src="florence.jpg" alt="Vista da Catedral de Santa Maria del Fiore, o Duomo de Florença"></div>
     <div class="hero-inner">
       <div class="hero-content">
-        <span class="eyebrow" style="width: 594px; height: 46px">Formação contínua em história e teoria da arquitetura, das cidades e das artes</span>
+        <span class="eyebrow hero-eyebrow">Formação contínua em história e teoria da arquitetura, das cidades e das artes</span>
         <h1>Aprenda a ler em profundidade as formas e ideias que cada época e civilização deixou no mundo.</h1>
         <p class="lede">Sua arquitetura, sua cidade e sua arte — para além da superfície. O Grupo de Estudos do Prof. Lucas Lima é uma comunidade de formação contínua dedicada à História e Teoria da Arquitetura, das Cidades e das Artes, com aulas ao vivo, espaço para perguntas, gravações, análises aprofundadas de obras e uma biblioteca digital de materiais selecionados.</p>
         <div class="hero-cta">
@@ -479,7 +478,6 @@
         <div class="feat-card"><span class="num">03</span><h3>Gravações completas</h3><p>Tudo fica disponível para rever, revisitar e estudar no seu próprio tempo.</p></div>
         <div class="feat-card"><span class="num">04</span><h3>Análise de obras</h3><p>Edifícios, cidades, pinturas e textos lidos com rigor crítico — não apenas descritos.</p></div>
         <div class="feat-card"><span class="num">05</span><h3>Biblioteca digital</h3><p>Uma seleção curada de textos, imagens e materiais de apoio, organizada e em crescimento contínuo.</p></div>
-        <div class="feat-card quote"><p>"Um grupo pequeno, próximo e acompanhado de perto."</p><span>Prof. Lucas Lima</span></div>
       </div>
     </div>
   </section>
